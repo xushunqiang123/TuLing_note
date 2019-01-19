@@ -1,0 +1,54 @@
+#1:namedtuple
+Point = collections.namedtuple("Point",["x","y"])
+
+po = Point(11,12)
+
+print(po[0])
+print(po.x)
+print("*****")
+print(po[1])
+print(po.y)
+
+print("*******")
+#创建一个圆的tuple类
+Circle = collections.namedtuple("circle",["x","y","r"])
+
+circle1 = Circle(0,0,20)
+print(circle1.x)
+print(circle1.y)
+print(circle1.r)
+print(circle1)
+print(isinstance(circle1,tuple))
+
+
+
+
+#2:deque  比较方便的解决了频繁删除插入带来的效率问题
+from collections import deque
+
+ls = [1,2,3,4,5,6]
+# ls.pop(ls[4])
+# print(ls)
+d = deque(ls)
+d.append(7)
+d.appendleft(0)
+print(d)
+
+
+
+#3:defaultdict  当直接读取dict不存在的属性的时候，直接放回默认值
+from collections import defaultdict
+#
+d = {"one":1,"two":2,"three":3}
+func = lambda :u"默认值10"
+d = defaultdict(func)
+d["one"] = 1
+d["two"] = 2
+print(d["for"])
+
+
+
+#4coumter 统计字符串个数
+from collections import Counter
+c = Counter("abcdef abcdef")
+print(c)
